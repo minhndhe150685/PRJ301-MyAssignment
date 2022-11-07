@@ -1,8 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
 -->
+
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -62,18 +65,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     </thead>
                     
                     <tbody>
-                        <tr>
-                            
+                        <c:forEach items="${listSess}" var="LS">
+                            <c:if test="${LS.slot.id==2}">
+                            <tr>
+                    
                             <td>Slot 1 </td>
-                    <c:if test="${account==null}"></c:if>
+                    
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
-                            <td><a href="">PRJ301-</a><br><a class="label label-warning" <br> at DE-C204 <a> </a><br>(<font color="Red">not yet</font>)<br>(10:50-12:20 )</span><br></td>
+                            <td><a href="">${requestScope.listSess.group.name}</a><br><a class="label label-warning" <br> at ${LS.room.name} <a> </a><br>(<font color="Red">not yet</font>)<br>(10:50-12:20 )</span><br></td>
                         </tr>
+                        </c:if>
                         <tr>
                             <td>Slot 2 </td>
                             <td>-</td>
@@ -145,7 +151,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                             <td>-</td>
                             <td>-</td>
                         </tr>
-                        
+                        </c:forEach>
                     </tbody>
                 </table>
            
